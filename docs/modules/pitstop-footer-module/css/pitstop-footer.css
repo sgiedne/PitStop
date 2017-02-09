@@ -1,13 +1,11 @@
 .footer-container{
-	background-color:CFCECD;
+	background-color:#CFCECD;
 	height: 100px;
 }
 
 img{
 	margin: 0 auto;
 	display:block;
-	margin-left:auto;
-	margin-right:auto;
 	width:60px;
 	
 }
