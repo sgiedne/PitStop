@@ -1,4 +1,16 @@
-.header-container{
-	background-color:CFCECD;
-	height: 100px;
+.header-container {
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    background-image: url("../images/header_bg.png");
+    position: relative
+}
+
+.header_text{
+    width: 15%;
+    height: 45%;    
+    margin-left: 42.5%;
+    margin-right: 42.5%;
+    margin-top: 3.5%;
+    position: absolute
 }
