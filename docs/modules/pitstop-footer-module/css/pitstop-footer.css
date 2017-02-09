@@ -2,3 +2,22 @@
 	background-color:CFCECD;
 	height: 100px;
 }
+
+img{
+	margin: 0 auto;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:60px;
+	
+}
+
+.down-arrow-image-section{
+	margin:20px;
+	display: inline;
+}
+
+.up-arrow-image-section{
+	margin:20px;
+	display: none;
+}
