@@ -1,55 +1,89 @@
-.global-search-container{
-	background-color:#CFCECD;
-	position: relative;
-	height: auto;	
+* {
+  margin: 0; padding: 0;
+}
+body {
+  font-size: 100%;
+}
+.accordion {
+  width: 100%;
+  margin: 20px auto;
+}
+.accordion h1, h2, h3, h4 {
+  cursor: pointer;
+}
+.accordion h2, h3, h4 {
+  font-family: "News Cycle";
+}
+.accordion h1 {
+  padding: 15px 20px;
+  background-color: #333;
+  font-family: Lobster;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #1abc9c;
+}
+.accordion h1:hover {
+  color: #4afcdc;
+}
+.accordion h1:first-child {
+  border-radius: 10px 10px 0 0;
+}
+.accordion h1:last-of-type {
+  border-radius: 0 0 10px 10px;
+}
+.accordion h1:not(:last-of-type) {
+  border-bottom: 1px dotted #1abc9c;
+}
+.accordion div, .accordion p {
+  display: none;
+}
+.accordion h2 {
+  padding: 5px 25px;
+  background-color: #1abc9c;
+  font-size: 1.1rem;
+  color: #333;
+}
+.accordion h2:hover {
+  background-color: #09ab8b;
+}
+.accordion h3 {
+  padding: 5px 30px;
+  background-color: #b94152;
+  font-size: .9rem;
+  color: #ddd; 
+}
+.accordion h3:hover {
+  background-color: #a93142;
+}
+.accordion h4 {
+  padding: 5px 35px;
+  background-color: #ffc25a;
+  font-size: .9rem;
+  color: #af720a; 
+}
+.accordion h4:hover {
+  background-color: #e0b040;
+}
+.accordion p {
+  padding: 15px 35px;
+  background-color: #ddd;
+  font-family: "Georgia";
+  font-size: .8rem;
+  color: #333;
+  line-height: 1.3rem;
 }
 
-.global-search-header-section{
-	display: block;
-	position: relative;
-	text-align:center;
-	height: 30px;
-	vertical-align:middle;
-	padding: 20px 0 20px 0;
+.accordion li {
+  padding: 15px 35px;
+  background-color: #ddd;
+  font-family: "Georgia";
+  font-size: .8rem;
+  color: #333;
+  line-height: 1.3rem;
+  border : outset;
+  border-width : 1px
 }
 
-#accordion{
-	width:100%;
-}
-	
-#accordion p, #accordion h4, #accordion div{	
-	margin:0;
-	padding:0;
-	list-style:circle;
-}
-#accordion div{
-	display:none;
-	color:#555;
-	overflow:hidden;
-}
-#accordion p{
-	background-color: #aaa9a8;
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    margin-top: 5px;
-    padding: 5px;
-	font-size:18px;
-}
-
-#accordion h4{
-	cursor:pointer;
-	padding:5px;
-	color: #666;
-	margin-left: 20px;
-}
-#accordion h4:hover{
-	color:#000;
-}
-#accordion h4 + div{
-	background-color:#F5F5F5;
-	padding:5px 5px 5px 30px;
-}
-#accordion li:hover{
-	color:#000;
-	cursor:pointer;
+.accordion .category {
+  display: block;
 }
