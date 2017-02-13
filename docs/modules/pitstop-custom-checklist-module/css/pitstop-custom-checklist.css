@@ -1,0 +1,58 @@
+.custom-checklist-container{
+	margin: 30px 30px 0 30px;
+	position:relative;
+}
+
+.checklist-center-section{
+	width:50%;
+	background-color:white;
+	display:inline-block;
+	float:left;
+	height:auto;
+}
+.icon-class{
+	float:right;
+}
+
+.checklist-left-panel-section{
+	width:23%;
+	position:relative;
+	float:left;
+}
+
+.checklist-right-section{
+	height: 552px;
+   # background-color:#87877e;
+	float:left;
+}
+
+a{
+	text-decoration: none;
+	display:block;
+	padding: 18px 8px 18px 0;
+	color: #4e2a84;
+}
+
+.list-group-item {
+    height: 70px;
+    line-height: 55px;
+}
+
+.row{
+	margin:20px;
+}
+
+.new-checklist-section{
+	text-align: right;
+	margin-right: 36px;
+}
+
+.existing-checklist{
+	
+}
+
+iframe[seamless] {
+    border: none;
+	width: 394px;
+	height: 552px;
+}
