@@ -324,5 +324,24 @@ h4 {
     border-radius: 0;
 }
 
+.btn-default {
+    border: 1px solid #E26A6A;
+    color: #E26A6A;
+}
+
+.btn-default:hover {
+    background-color: #E26A6A;
+    color: #ffffff;
+    border-color: #E26A6A;
+}
+
+.btn-default:focus,
+.btn-default.active,
+.btn-default:active {
+  color: #ffffff;
+  background-color: #bd454e;
+  border-color: #bd454e;
+}
+
 
 /* Global search section End*/
