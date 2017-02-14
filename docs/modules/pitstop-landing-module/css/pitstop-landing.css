@@ -93,11 +93,7 @@ input[type="password"] {
 
 .checklist-section{
 	display:none;
-<<<<<<< HEAD
     background-color: #eff0f1;
-=======
-	
->>>>>>> 89a9af681b560e42234421e333a8959d962068d2
 }
 
 .custom-checklist-container {
@@ -235,15 +231,18 @@ h4 {
 
 .accordion h1 {
     padding: 15px 20px;
-    background-color: #DFD7D7;
+    color: #fff;
+    background-color: #eff0f1;
+    color: #1A6A67;
+/*    background: linear-gradient(#1F3A93, #d24d57);*/
     #font-family: Lobster;
     font-size: 1.2rem;
     font-weight: normal;
-    #color: #1abc9c;
 }
 
 .accordion h1:hover {
-    color: #bab0ad;
+    color: #fff;
+    background-color: #1A6A67;
 }
 
 .accordion h1:first-child {
@@ -255,7 +254,7 @@ h4 {
 }
 
 .accordion h1:not(:last-of-type) {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #332039;
 }
 
 .accordion div,
@@ -265,13 +264,14 @@ h4 {
 
 .accordion h2 {
     padding: 5px 25px;
-    background-color: #A7CDD5;
+    background-color: #eff0f1;
     font-size: 1.1rem;
-    color: #333;
+    color: #1A6A67;
 }
 
 .accordion h2:hover {
-    background-color: #09ab8b;
+    background-color: #1A6A67;
+    color: #fff
 }
 
 .accordion h3 {
