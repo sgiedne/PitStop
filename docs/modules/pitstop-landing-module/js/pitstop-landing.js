@@ -1,4 +1,3 @@
-var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
@@ -25,7 +24,8 @@ $(document).ready(function(){
 	
     //  $(".accordion p, .accordion div").slideUp("fast");
     //  $(".accordion p, .accordion div").hide();
-    
+    var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
+	
     $(".accordion p, .accordion div").hide();
     $(".accordion").click(function (e) {
         var target = e.target

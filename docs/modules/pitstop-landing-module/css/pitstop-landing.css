@@ -114,18 +114,13 @@ iframe[seamless] {
 /* Footer section End*/
 
 /* Global search section Start*/
-.global-search-section{
-	margin: 0;
-	padding: 0;
-	position:relative;
-	font-size: 100%;
-}
 .accordion {
   width: 100%;
-  margin: 20px auto;
+  margin: 0%;
 }
 .accordion h1, h2, h3, h4 {
   cursor: pointer;
+  margin: 0%
 }
 .accordion h2, h3, h4 {
   #font-family: "News Cycle";
@@ -144,10 +139,10 @@ iframe[seamless] {
   color: #bab0ad;
 }
 .accordion h1:first-child {
-  border-radius: 10px 10px 0 0;
+  #border-radius: 10px 10px 0 0;
 }
 .accordion h1:last-of-type {
-  border-radius: 0 0 10px 10px;
+ # border-radius: 0 0 10px 10px;
 }
 .accordion h1:not(:last-of-type) {
   border-bottom: 1px solid;
@@ -208,10 +203,10 @@ iframe[seamless] {
   display: block;
 }
 
-iframe[globalsearch] {
-    border: none;
-	width: 140%;
-	height: auto;
+.category ul {
+    list-style: none;
+    padding: 0;
+	margin: 0;
 }
 
 /* Global search section End*/
