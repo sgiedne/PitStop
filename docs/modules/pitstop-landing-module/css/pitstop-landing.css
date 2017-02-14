@@ -1,4 +1,5 @@
 /* Header section start */
+
 .header-container {
     width: 100%;
     height: 25%;
@@ -7,54 +8,72 @@
     position: relative
 }
 
-.header_text{
+.header_text {
     width: 15%;
-    height: 45%;    
+    height: 45%;
     margin-left: 42.5%;
     margin-right: 42.5%;
     margin-top: 2.5%;
     position: relative;
 }
 
+.sec_left {
+    width: 27%
+}
+
+.sec_center {
+    width: 50%;
+    position: relative
+}
+
+.sec_right {
+    width: 23%;
+    position: relative
+}
+
+
 /* Header section End */
+
 
 /* Custom checklist center section start*/
 
-.custom-checklist-container{
-	margin: 1%;
-	position:relative;
+.custom-checklist-container {
+    margin: 1%;
+    position: relative;
 }
 
-.checklist-center-section{
-	#width:50%;
-	background-color:white;
-	float:left;
-	height:auto;
-	position:relative;
-	margin:1%;
-}
-.icon-class{
-	float:right;
+.checklist-center-section {
+    width: 50%;
+    background-color: white;
+    float: left;
+    height: auto;
+    position: relative;
+    margin: 1%;
 }
 
-.checklist-left-panel-section{
-	width:23%;
-	position:relative;
-	float:left;
+.icon-class {
+    float: right;
 }
 
-.checklist-right-section{
-	height: 552px;
-	#background-color:#87877e;
-	float:left;
-	position:relative;
+.checklist-left-panel-section {
+    width: 23%;
+    position: relative;
+    float: left;
 }
 
-a{
-	text-decoration: none;
-	display:block;
-	padding: 18px 8px 18px 0;
-	color: #4e2a84;
+.checklist-right-section {
+    height: 552px;
+    #background-color: #87877e;
+    float: left;
+    position: relative;
+    width : 18%
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    padding: 18px 8px 18px 0;
+    color: #4e2a84;
 }
 
 .list-group-item {
@@ -62,151 +81,176 @@ a{
     line-height: 300%;
 }
 
-.row{
-	margin:3%;
+.row {
+    margin: 3%;
 }
 
-.new-checklist-section{
-	text-align: right;
-	margin: 1% 5% 0 0
+.new-checklist-section {
+    text-align: right;
+    margin: 1% 5% 0 0
 }
 
-.existing-checklist{
-	
-}
+.existing-checklist {}
 
 iframe[seamless] {
     border: none;
-	width: 140%;
-	height: 552px;
+    width: 140%;
+    height: 552px;
 }
+
 
 /* Custom checklist center section End*/
 
+
 /* Footer section Start*/
 
-
-.footer-container{
-	position: relative;
-	background-color:#6090a8;
-	height: 100px;
+.footer-container {
+    position: relative;
+    background-color: #6090a8;
+    height: 100px;
 }
 
-.footer-img{
-	margin: 0 auto;
-	display:block;
-	width:3%;	
-}
-.down-arrow-image-section{
-	#margin:20px;
-	display: inline;
+.footer-img {
+    margin: 0 auto;
+    display: block;
+    width: 3%;
 }
 
-.up-arrow-image-section{
-	display: none;
-	#	margin:20px;
+.down-arrow-image-section {
+    #margin: 20px;
+    display: inline;
 }
 
-.global-search-section{
-	#display:none;
+.up-arrow-image-section {
+    display: none;
+    # margin: 20px;
 }
+
+.global-search-section {
+    #display: none;
+}
+
 
 /* Footer section End*/
 
+
 /* Global search section Start*/
+
 .accordion {
-  width: 100%;
-  margin: 0%;
+    width: 100%;
+    margin: 0%;
 }
-.accordion h1, h2, h3, h4 {
-  cursor: pointer;
-  margin: 0%
+
+.accordion h1,
+h2,
+h3,
+h4 {
+    cursor: pointer;
+    margin: 0%
 }
-.accordion h2, h3, h4 {
-  #font-family: "News Cycle";
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+
+.accordion h2,
+h3,
+h4 {
+    #font-family: "News Cycle";
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
+
 .accordion h1 {
-  padding: 15px 20px;
-  background-color: #DFD7D7;
-  #font-family: Lobster;
-  font-size: 1.2rem;
-  font-weight: normal;
-  #color: #1abc9c;
+    padding: 15px 20px;
+    background-color: #DFD7D7;
+    #font-family: Lobster;
+    font-size: 1.2rem;
+    font-weight: normal;
+    #color: #1abc9c;
 }
+
 .accordion h1:hover {
-  color: #bab0ad;
+    color: #bab0ad;
 }
+
 .accordion h1:first-child {
-  #border-radius: 10px 10px 0 0;
+    #border-radius: 10px 10px 0 0;
 }
+
 .accordion h1:last-of-type {
- # border-radius: 0 0 10px 10px;
+    # border-radius: 0 0 10px 10px;
 }
+
 .accordion h1:not(:last-of-type) {
-  border-bottom: 1px solid;
+    border-bottom: 1px solid;
 }
-.accordion div, .accordion p {
-  display: none;
-}
-.accordion h2 {
-  padding: 5px 25px;
-  background-color: #A7CDD5;
-  font-size: 1.1rem;
-  color: #333;
-}
-.accordion h2:hover {
-  background-color: #09ab8b;
-}
-.accordion h3 {
-  padding: 5px 30px;
-  background-color: #b94152;
-  font-size: .9rem;
-  color: #ddd; 
-}
-.accordion h3:hover {
-  background-color: #a93142;
-}
-.accordion h4 {
-  padding: 5px 35px;
-  background-color: #ffc25a;
-  font-size: .9rem;
-  color: #af720a; 
-}
-.accordion h4:hover {
-  background-color: #e0b040;
-}
+
+.accordion div,
 .accordion p {
-  padding: 15px 35px;
-  background-color: #ddd;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  #font-family: "Georgia";
-  #font-size: .8rem;
-  color: #333;
-  line-height: 1.3rem;
+    display: none;
+}
+
+.accordion h2 {
+    padding: 5px 25px;
+    background-color: #A7CDD5;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.accordion h2:hover {
+    background-color: #09ab8b;
+}
+
+.accordion h3 {
+    padding: 5px 30px;
+    background-color: #b94152;
+    font-size: .9rem;
+    color: #ddd;
+}
+
+.accordion h3:hover {
+    background-color: #a93142;
+}
+
+.accordion h4 {
+    padding: 5px 35px;
+    background-color: #ffc25a;
+    font-size: .9rem;
+    color: #af720a;
+}
+
+.accordion h4:hover {
+    background-color: #e0b040;
+}
+
+.accordion p {
+    padding: 15px 35px;
+    background-color: #ddd;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    #font-family: "Georgia";
+    #font-size: .8rem;
+    color: #333;
+    line-height: 1.3rem;
 }
 
 .accordion li {
-  padding: 15px 35px;
-  background-color: #ddd;
-  #font-family: "Georgia";
-  #font-size: .8rem;
-  color: #333;
-  line-height: 1.3rem;
-  border : outset;
-  border-width : 1px
+    padding: 15px 35px;
+    background-color: #ddd;
+    #font-family: "Georgia";
+    #font-size: .8rem;
+    color: #333;
+    line-height: 1.3rem;
+    border: outset;
+    border-width: 1px
 }
 
 .accordion .category {
-  display: block;
+    display: block;
 }
 
 .category ul {
     list-style: none;
     padding: 0;
-	margin: 0;
+    margin: 0;
 }
+
 
 /* Global search section End*/
