@@ -1,3 +1,4 @@
+
 .custom-checklist-container{
 	margin: 30px 30px 0 30px;
 	position:relative;
@@ -6,9 +7,9 @@
 .checklist-center-section{
 	width:50%;
 	background-color:white;
-	display:inline-block;
 	float:left;
 	height:auto;
+	position:relative;
 }
 .icon-class{
 	float:right;
@@ -24,6 +25,7 @@
 	height: 552px;
    # background-color:#87877e;
 	float:left;
+	position:relative;
 }
 
 a{
@@ -45,6 +47,7 @@ a{
 .new-checklist-section{
 	text-align: right;
 	margin-right: 36px;
+	margin-top: 15px;
 }
 
 .existing-checklist{
