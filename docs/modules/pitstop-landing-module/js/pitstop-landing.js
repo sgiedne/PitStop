@@ -13,6 +13,7 @@ $(document).ready(function(){
 		$('.up-arrow-image-section').css('display','inline');
 		$('.down-arrow-image-section').hide();
 		$('.global-search-section').show();
+		document.getElementById("globalsearchsection").scrollIntoView()
 	}); 
 
 	$('#collapseGlobalSearch').click(function(){
