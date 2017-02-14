@@ -25,6 +25,7 @@ $(document).ready(function(){
 		$('.up-arrow-image-section').css('display','none');
 		$('.down-arrow-image-section').show();
 		//$('.global-search-section').hide();
+		document.getElementById("headerContainer").scrollIntoView()
 	}); 
 	
 		
