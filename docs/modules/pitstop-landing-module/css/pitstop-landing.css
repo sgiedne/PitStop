@@ -93,7 +93,11 @@ input[type="password"] {
 
 .checklist-section{
 	display:none;
+<<<<<<< HEAD
     background-color: #eff0f1;
+=======
+	
+>>>>>>> 89a9af681b560e42234421e333a8959d962068d2
 }
 
 .custom-checklist-container {

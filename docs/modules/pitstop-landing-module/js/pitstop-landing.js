@@ -4,6 +4,8 @@ $(document).ready(function(){
 	$('#login').click(function(){
 		$('.login-section').hide();
 		$('.checklist-section').show();
+		$('.down-arrow-image-section').hide();
+		$('.up-arrow-image-section').hide();
 	});
 	
 	$('.list-group-item').on('click', function() {
