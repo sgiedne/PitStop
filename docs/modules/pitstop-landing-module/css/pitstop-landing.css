@@ -310,5 +310,18 @@ h4 {
     margin: 0;
 }
 
+/*overriding default bootstrap*/
+
+.panel-default {
+    border: 1px solid #D24D57;
+    border-radius: 0;
+}
+
+.panel-default > .panel-heading {
+    color: #ffffff;
+    background-color: #E26A6A;
+    border-radius: 0;
+}
+
 
 /* Global search section End*/
