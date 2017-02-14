@@ -17,36 +17,40 @@ body {
   font-size: 14px;
 }
 .accordion h1 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   padding: 15px 20px;
-  background-color: #DFD7D7;
-  #font-family: Lobster;
-  font-size: 1.2rem;
-  font-weight: normal;
-  #color: #1abc9c;
+/*  background-color: #d1c9c0; */
+/*  background-color: #f9f7f4;*/
+/*  font-family: Lobster;*/
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1A6A67;
 }
 .accordion h1:hover {
-  color: #bab0ad;
+  color: #fff;
+  background-color: #1A6A67;
 }
 .accordion h1:first-child {
-  border-radius: 10px 10px 0 0;
+  /*border-radius: 10px 10px 0 0;*/
 }
 .accordion h1:last-of-type {
-  border-radius: 0 0 10px 10px;
+  /*border-radius: 0 0 10px 10px;*/
 }
 .accordion h1:not(:last-of-type) {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #1A6A67;
 }
 .accordion div, .accordion p {
   display: none;
 }
 .accordion h2 {
   padding: 5px 25px;
-  background-color: #A7CDD5;
+/*  background-color: #A7CDD5;*/
+  color: #1A6A67;
   font-size: 1.1rem;
-  color: #333;
 }
 .accordion h2:hover {
-  background-color: #09ab8b;
+  background-color: #1A6A67;
+  color: #fff;
 }
 .accordion h3 {
   padding: 5px 30px;
@@ -79,10 +83,10 @@ body {
 
 .accordion li {
   padding: 15px 35px;
-  background-color: #ddd;
+/*  background-color: #ddd;*/
   #font-family: "Georgia";
   #font-size: .8rem;
-  color: #333;
+  color: #145452;
   line-height: 1.3rem;
   border : outset;
   border-width : 1px

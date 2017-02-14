@@ -93,6 +93,7 @@ input[type="password"] {
 
 .checklist-section{
 	display:none;
+    background-color: #eff0f1;
 }
 
 .custom-checklist-container {
@@ -134,9 +135,22 @@ a {
     color: #4e2a84;
 }
 
+a.list-group-item {
+    color: #1A6A67;
+    font-size: 18px;
+}
+
+.list-group-item.active:focus,
+.list-group-item.active:active,
+.list-group-item.active {
+    background-color: #1A6A67;
+    color: #fff;
+}
+
 .list-group-item {
     height: 70px;
     line-height: 300%;
+    background-color: transparent;
 }
 
 .row {
