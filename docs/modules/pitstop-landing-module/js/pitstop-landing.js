@@ -1,6 +1,11 @@
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
+	$('#login').click(function(){
+		$('.login-section').hide();
+		$('.checklist-section').show();
+	});
+	
 	$('.list-group-item').on('click', function() {
 		var $this = $(this);
 		var $alias = $this.data('alias');
@@ -12,17 +17,17 @@ $(document).ready(function(){
 	$('#expandGlobalSearch').click(function(){
 		$('.up-arrow-image-section').css('display','inline');
 		$('.down-arrow-image-section').hide();
-		$('.global-search-section').show();
+		//$('.global-search-section').show();
 		document.getElementById("globalsearchsection").scrollIntoView()
 	}); 
 
 	$('#collapseGlobalSearch').click(function(){
 		$('.up-arrow-image-section').css('display','none');
 		$('.down-arrow-image-section').show();
-		$('.global-search-section').hide();
+		//$('.global-search-section').hide();
 	}); 
 	
-	
+		
     //  $(".accordion p, .accordion div").slideUp("fast");
     //  $(".accordion p, .accordion div").hide();
     var headers = ["H1", "H2", "H3", "H4", "H5", "H6"];
