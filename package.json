@@ -1,0 +1,39 @@
+{
+  "name": "pitstop",
+  "version": "0.0.1",
+  "description": "pitstop checklist app",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgiedne/pitStop.git"
+  },
+  "authors": [
+    "Siddharth Muthukumaran",
+    "Haridu Senadeera",
+    "Shanil Sharma",
+    "Santhosh Subramanian"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgiedne/pitStop/issues"
+  },
+  "homepage": "https://github.com/sgiedne/pitStop#readme",
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^2.2.1"
+  }
+}
