@@ -18,7 +18,7 @@ $(document).ready(function(){
 			}else{
 				$('.login-failed').show();
 				
-				/* $('.login-section').hide();
+				/*  $('.login-section').hide();
 				$('.checklist-section').show();
 				$('.existing-checklist').hide();
 				$('.down-arrow-image-section').hide();
@@ -41,9 +41,14 @@ $(document).ready(function(){
 	
 	$('#saveChecklist').click(function(){
 		var usrname;
+		var items = [];
 		if(typeof(Storage) !== "undefined") {
 			usrname = localStorage.getItem("usrName");
+			$( ".todo" ).each(function( index ) {
+				items.push($(this).text());
+			});
 		}
+		console.log(items);
 	});
 	
 	$('#cancelChecklist').click(function(){
@@ -101,7 +106,8 @@ $(document).ready(function(){
 	  else
 		newId = 1;
 		  
-	  $(this).before('<span class="editing todo-wrap"><input type="checkbox" id="'+newId+'"/><label for="'+newId+'" class="todo"><i class="fa fa-check"></i><input type="text" class="input-todo" id="input-todo'+newId+'"/></label></div>');
+	  $(this).before('<span class="editing todo-wrap"><input type="checkbox" id="'+newId+'"/><label for="'+newId+'" class="todo"><i class="fa fa-check"></i><input type="text" class="input-todo" id="input-todo'+newId+'"/></label></span>');
+	  
 	  $('#input-todo'+newId+'').parent().parent().animate({
 		height:"36px"
 	  },200)
