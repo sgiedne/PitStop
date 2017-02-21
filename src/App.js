@@ -6,9 +6,9 @@ export default class App extends React.Component {
   render() {
     return(
         <div>
-            <Header name="Header"/>
+            <Header />
             <h1>Hello World!</h1>
-            <Footer name="Footer"/>
+            <Footer name="Footer" />
         </div>
     )
   }

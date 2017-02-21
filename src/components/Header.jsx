@@ -3,7 +3,9 @@ import React from 'react';
 export default class Header extends React.Component {
   render() {
     return(
-        <h1>{ this.props.name } Component</h1>
+        <div className="header-container">
+        	<img className="header_text" src="../../docs/modules/pitstop-header-module/images/header_text.png" />
+    	</div>
     )
   }
 }

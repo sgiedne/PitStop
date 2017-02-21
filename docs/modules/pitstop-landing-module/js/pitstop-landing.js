@@ -1,11 +1,69 @@
+var viewData = { 
+    userids : [] 
+};
+
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
 	$('#login').click(function(){
-		$('.login-section').hide();
-		$('.checklist-section').show();
-		$('.down-arrow-image-section').hide();
-		$('.up-arrow-image-section').hide();
+		var usrName = $('#username').val();
+		var pwd = $('#password').val();
+		if(typeof(Storage) !== "undefined") {
+			if(localStorage.getItem("usrName") == usrName &&  localStorage.getItem("pwd") == pwd){
+				$('.login-section').hide();
+				$('.checklist-section').show();
+				$('.existing-checklist').hide();
+				$('.down-arrow-image-section').hide();
+				$('.up-arrow-image-section').hide();
+			}else{
+				$('.login-failed').show();
+			}
+			clearFormFields();
+		}		
+	});
+	
+	$('#signupButton, .signup-link').click(function(){
+          $('#loginButton').css("background-color", "#ecf0f1");
+          $('#loginButton > span').css("color", "#333");
+          $('#signupButton').css("background-color", "#d24d57");
+          $('#signupButton > span').css("color", "white");
+          //$('.left-panel').toggle(50);
+          //$('.right-panel').toggle(100);
+		  $('.left-panel').hide();
+		  $('.right-panel').show();
+    });
+		
+	$('#loginButton').click(function(){		 
+		  $('#signupButton').css("background-color", "#ecf0f1");
+		  $('#signupButton > span').css("color", "#333");
+		  $('#loginButton').css("background-color", "#d24d57");
+		  $('#loginButton > span').css("color", "white");
+		  //$('.left-panel').toggle(100);
+		  //$('.right-panel').toggle(50);
+		  $('.left-panel').show();
+		  $('.right-panel').hide();		  
+	});
+	
+	$('#register').click(function(){
+		var usrName = $('#regusername').val();
+		var pwd = $('#regpassword').val();
+		var cnfpwd = $('#confPassword').val();
+		console.log(usrName + " " +pwd+ " " + cnfpwd);
+		if(pwd == cnfpwd ) {
+		  console.log("Equal");
+		  if(typeof(Storage) !== "undefined") {
+			localStorage.setItem("usrName", usrName);
+			localStorage.setItem("pwd", pwd);
+			clearFormFields();
+			$('.left-panel').show();
+			$('.login-success').show();
+			$('.right-panel').hide();
+		  }		  
+		} else {
+			$('.pwd-failed').show();
+			clearFormFields();
+			console.log("Not equal");
+		}
 	});
 	
 	$('.list-group-item').on('click', function() {
@@ -150,3 +208,9 @@ $(document).ready(function(){
         }
     });
 });
+
+function clearFormFields(){
+	$('#regusername').val('');
+	$('#regpassword').val('');
+	$('#confPassword').val('');	
+}
