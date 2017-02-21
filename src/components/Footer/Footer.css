@@ -1,0 +1,21 @@
+.footer-container{
+    background-color:#6090a8;
+    height: 100px;
+}
+
+img{
+    margin: 0 auto;
+    display:block;
+    width:60px;
+    
+}
+
+.down-arrow-image-section{
+    margin:20px;
+    display: inline;
+}
+
+.up-arrow-image-section{
+    margin:20px;
+    display: none;
+}

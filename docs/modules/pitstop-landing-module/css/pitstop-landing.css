@@ -162,7 +162,7 @@ input[type="password"] {
 
 .checklist-center-section, .new-checklist-container {
     width: 50%;
-    background-color: white;
+    #background-color: white;
     float: left;
     height: auto;
     position: relative;
@@ -446,7 +446,7 @@ font-size:14px;
 
 .save-cancel-section{
 	text-align:right;
-	margin: 0 50px 30px 50px;
+	margin: 0 10px 30px 50px;
 }
 
 #titleValue {
@@ -458,7 +458,23 @@ font-size:14px;
 
 .title-section{
 	display:block;
-	width: 88%;
+	width: 99%;
+}
+
+select {
+  outline: none;
+  -webkit-appearance: none;
+  font: 14px 'Open Sans', sans-serif;
+  cursor: pointer;
+  color: #3C434A;
+  border-color: #A6AFB7;
+  padding: 8px 16px;
+  border-radius: 3px;
+  min-width: 101%;
+}
+
+.category-dropdown{
+	margin:7px;
 }
 /* New checklist - End */
 

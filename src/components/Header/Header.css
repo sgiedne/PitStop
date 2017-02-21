@@ -1,0 +1,16 @@
+.header-container {
+    width: 100%;
+    height: 25%;
+    margin: 0;
+    background-color:#d24d57;
+    position: relative
+}
+
+.header-image {
+    width: 15%;
+    height: 45%;    
+    margin-left: 42.5%;
+    margin-right: 42.5%;
+    margin-top: 2.5%;
+    position: relative;
+}

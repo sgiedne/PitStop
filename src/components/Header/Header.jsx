@@ -1,11 +1,13 @@
 import React from 'react';
+import './Header.css'
+import header from '../../img/header/header_text.png'
  
 export default class Header extends React.Component {
   render() {
     return(
         <div className="header-container">
-        	<img className="header_text" src="../../docs/modules/pitstop-header-module/images/header_text.png" />
-    	</div>
+            <img className="header-image" src={ header } />
+        </div>
     )
   }
 }
