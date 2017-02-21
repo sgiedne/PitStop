@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
+	$('#log-out').hide();
+
 	$('#login').click(function(){
 		var usrName = $('#username').val();
 		var pwd = $('#password').val();
@@ -11,6 +13,7 @@ $(document).ready(function(){
 				$('.existing-checklist').hide();
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
+				$('#log-out').show();
 			}else{
 				//$('.login-failed').show();
 				
@@ -22,6 +25,16 @@ $(document).ready(function(){
 			}
 			clearFormFields();
 		}		
+	});
+
+	$('#log-out').click(function(){
+			$('.login-section').show();
+			$('.checklist-section').hide();
+			$('.existing-checklist').show();
+			$('.down-arrow-image-section').show();
+			$('.up-arrow-image-section').show();
+			$('#log-out').hide();
+			clearLogInFormFields();		
 	});
 	
 	$('#signupButton, .signup-link').click(function(){
@@ -278,4 +291,8 @@ function getchecklist(){
 	htmlSection += col;	
 	$('.existing-checklist').show();
 	$(".existing-checklist").append(htmlSection);	
+
+	function clearLogInFormFields(){
+	$('#username').val('');
+	$('#password').val('');
 }
