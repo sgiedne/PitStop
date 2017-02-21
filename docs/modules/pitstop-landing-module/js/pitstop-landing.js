@@ -1,7 +1,3 @@
-var viewData = { 
-    userids : [] 
-};
-
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
@@ -16,13 +12,13 @@ $(document).ready(function(){
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
 			}else{
-				$('.login-failed').show();
+				//$('.login-failed').show();
 				
-				/*  $('.login-section').hide();
+			    $('.login-section').hide();
 				$('.checklist-section').show();
 				$('.existing-checklist').hide();
 				$('.down-arrow-image-section').hide();
-				$('.up-arrow-image-section').hide(); */
+				$('.up-arrow-image-section').hide();
 			}
 			clearFormFields();
 		}		
@@ -64,6 +60,7 @@ $(document).ready(function(){
 			}
 		}
 		localStorage.setItem("checklists", JSON.stringify(saveObject));
+		getchecklist();
 	});
 	
 	$('#cancelChecklist').click(function(){
@@ -109,7 +106,7 @@ $(document).ready(function(){
 	$('#newChecklist').on('click', function() {
 		$('.checklist-center-section').hide();
 		$('.new-checklist-container').show();
-		 $('.new-checklist-container').css('background-color', 'white');
+		$('.new-checklist-container').css('background-color', 'white');
 	});
 	
 	// add items
@@ -255,4 +252,30 @@ function clearFormFields(){
 	$('#regusername').val('');
 	$('#regpassword').val('');
 	$('#confPassword').val('');	
+}
+
+function getchecklist(){
+	$('.checklist-center-section').show();
+	$('.new-checklist-container').hide();
+	$('.checklist-center-section').css('background-color', 'white');
+	var title;
+	if(typeof(Storage) !== "undefined") {
+		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
+		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			$.each(obj.checklists, function(i, item) {
+				title = item.title;
+			});		  
+		}
+	}
+	var htmlSection = '<div class="row">';
+	var col = '<div class="col-md-4">'
+	var panesection = '<div class="panel panel-default">';
+	var panelHeading = '<div class="panel-heading">'+title+'</div>';
+	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></div>';
+	panelHeading += paneBody ;
+	panesection += panelHeading
+	col +=panesection;
+	htmlSection += col;	
+	$('.existing-checklist').show();
+	$(".existing-checklist").append(htmlSection);	
 }
