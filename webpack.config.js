@@ -5,18 +5,29 @@ module.exports = {
   entry: './src/index.js',
   output: { 
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js' 
+    filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.jsx?$/,
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'file-loader',
+        options: {
+          name: './img/[hash].[ext]',
+        }
       }
     ]
-  },
+  }
 };
