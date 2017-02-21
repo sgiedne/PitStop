@@ -292,7 +292,9 @@ function getchecklist(){
 	$('.existing-checklist').show();
 	$(".existing-checklist").append(htmlSection);	
 
-	function clearLogInFormFields(){
+}
+
+function clearLogInFormFields(){
 	$('#username').val('');
 	$('#password').val('');
 }
