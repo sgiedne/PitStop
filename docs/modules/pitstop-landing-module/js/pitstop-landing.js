@@ -47,8 +47,23 @@ $(document).ready(function(){
 			$( ".todo" ).each(function( index ) {
 				items.push($(this).text());
 			});
+
+			var title = $('#titleValue').val();
+			var category = $('#select-picker').val();
+
+			var saveObject = {
+				username: usrname,
+				password: '',
+				checklists: [
+					{
+						title: title,
+						category: category,
+						items: items
+					}
+				]
+			}
 		}
-		console.log(items);
+		localStorage.setItem("checklists", JSON.stringify(saveObject));
 	});
 	
 	$('#cancelChecklist').click(function(){
