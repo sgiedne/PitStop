@@ -15,13 +15,13 @@ $(document).ready(function(){
 				$('.up-arrow-image-section').hide();
 				$('#log-out').show();
 			}else{
-				//$('.login-failed').show();
-				
+				$('.login-failed').show();
+				/* 				
 			    $('.login-section').hide();
 				$('.checklist-section').show();
 				$('.existing-checklist').hide();
 				$('.down-arrow-image-section').hide();
-				$('.up-arrow-image-section').hide();
+				$('.up-arrow-image-section').hide(); */
 			}
 			clearFormFields();
 		}		
