@@ -26,12 +26,34 @@
 	
 	<!-- Login section start -->
 	<section class = "login-section">
-		<div class="wrapper">
+		<div class="wrapper">			
 			<div class="form-signin"> 
-			  <input type="text" class="form-control" name="username" placeholder="Email Address" autofocus="" />
-			  <input type="password" class="form-control" name="password" placeholder="Password" />      
-			  <button id= "login" class="btn btn-lg btn-primary btn-block">Login</button> 
-			  <button id= "login" class="btn btn-lg btn-primary btn-block">Register</button>			  
+				<div class = "login-top-section">
+					<div class="login-text" id="loginButton">
+						<span>Login</span>
+					</div>
+					<div class="signup-text" id="signupButton">
+						<span>Signup</span>
+					</div>
+					<div class="float-clear"></div>
+				</div>
+				
+				<div class="left-panel">
+					<p class="login-success">Your login id has been successfully created</p>
+					<p class="login-failed">Invalid username/password</p>
+					<input type="text" id="username" class="form-control" name="username" placeholder="Email Address" autofocus="" />
+					<input type="password" id="password" class="form-control" name="password" placeholder="Password" />      
+					<button id= "login" class="btn btn-lg btn-primary btn-block">Login</button> 			  	
+					<a class="signup-link" href="#"> <p> Don't have an account? Register </p></a>		
+			    </div>
+				
+				<div class="right-panel">
+					<p class="pwd-failed">Password does not match</p>
+					<input type="text" id="regusername" class="form-control" name="username" placeholder="Email Address" autofocus="" />
+					<input type="password" id="regpassword" class="form-control" name="password" placeholder="Password" />  
+					<input type="password" id="confPassword" class="form-control" name="confPassword" placeholder="Confirm Password" />					
+					<button id= "register" class="btn btn-lg btn-primary btn-block">Register</button> 	
+			    </div>
 			</div>
 		 </div>		
 	</section>
@@ -112,12 +134,21 @@
 				</div>
 			</div>
 			
-			<div class = "new-checklist-container">
-				
-				<form id="todo-list">
-					
+			<div class = "new-checklist-container">				
+				<form id="todo-list">					
 					<div class ="title-section">
 						<input type="text" id="titleValue" placeholder="Enter Title Here...">
+					</div>
+					
+					<div class="category-dropdown">
+					  <select class="select-picker">
+						  <option value="selectCategory">Select Category</option>
+						  <option value="Travel">Travel</option>
+						  <option value="dailyActivities">Daily Activities</option>
+						  <option value="office">Office/College</option>
+						  <option value="sports">Sports</option>
+						  <option value="others">Others</option>
+					   </select>
 					</div>
 					
 					<div id="add-todo">
@@ -125,12 +156,10 @@
 					</div>
 						
 					<div class = "save-cancel-section">
-						<button id = "newChecklist" type="button" class="btn btn-default">Save</button>
-						<button id = "newChecklist" type="button" class="btn btn-default">Cancel</button>
-					</div>
-				
-				</form>
-				
+						<button id = "saveChecklist" type="button" class="btn btn-default">Save</button>
+						<button id = "cancelChecklist" type="button" class="btn btn-default">Cancel</button>
+					</div>				
+				</form>				
 			</div>
 			
 			<div class = "checklist-right-section">

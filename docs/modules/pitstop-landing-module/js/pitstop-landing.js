@@ -1,11 +1,84 @@
+var viewData = { 
+    userids : [] 
+};
+
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
 	$('#login').click(function(){
-		$('.login-section').hide();
-		$('.checklist-section').show();
-		$('.down-arrow-image-section').hide();
-		$('.up-arrow-image-section').hide();
+		var usrName = $('#username').val();
+		var pwd = $('#password').val();
+		if(typeof(Storage) !== "undefined") {
+			if(localStorage.getItem("usrName") == usrName &&  localStorage.getItem("pwd") == pwd){
+				$('.login-section').hide();
+				$('.checklist-section').show();
+				$('.existing-checklist').hide();
+				$('.down-arrow-image-section').hide();
+				$('.up-arrow-image-section').hide();
+			}else{
+				$('.login-failed').show();
+				
+				/*  $('.login-section').hide();
+				$('.checklist-section').show();
+				$('.existing-checklist').hide();
+				$('.down-arrow-image-section').hide();
+				$('.up-arrow-image-section').hide(); */
+			}
+			clearFormFields();
+		}		
+	});
+	
+	$('#signupButton, .signup-link').click(function(){
+          $('#loginButton').css("background-color", "#ecf0f1");
+          $('#loginButton > span').css("color", "#333");
+          $('#signupButton').css("background-color", "#d24d57");
+          $('#signupButton > span').css("color", "white");
+          //$('.left-panel').toggle(50);
+          //$('.right-panel').toggle(100);
+		  $('.left-panel').hide();
+		  $('.right-panel').show();
+    });
+	
+	$('#saveChecklist').click(function(){
+		var usrname;
+		var items = [];
+		if(typeof(Storage) !== "undefined") {
+			usrname = localStorage.getItem("usrName");
+			$( ".todo" ).each(function( index ) {
+				items.push($(this).text());
+			});
+		}
+		console.log(items);
+	});
+	
+	$('#cancelChecklist').click(function(){
+		$('.checklist-center-section').show();
+		$('.new-checklist-container').hide();
+	});
+		
+	$('#loginButton').click(function(){		 
+		 loginFunctionalty();
+	});
+	
+	$('#register').click(function(){
+		var usrName = $('#regusername').val();
+		var pwd = $('#regpassword').val();
+		var cnfpwd = $('#confPassword').val();
+		console.log(usrName + " " +pwd+ " " + cnfpwd);
+		if(pwd == cnfpwd ) {
+		  console.log("Equal");
+		  if(typeof(Storage) !== "undefined") {
+			localStorage.setItem("usrName", usrName);
+			localStorage.setItem("pwd", pwd);
+			clearFormFields();
+			loginFunctionalty();
+			$('.login-success').show();			
+		  }		  
+		} else {
+			$('.pwd-failed').show();
+			clearFormFields();
+			console.log("Not equal");
+		}
 	});
 	
 	$('.list-group-item').on('click', function() {
@@ -21,6 +94,7 @@ $(document).ready(function(){
 	$('#newChecklist').on('click', function() {
 		$('.checklist-center-section').hide();
 		$('.new-checklist-container').show();
+		 $('.new-checklist-container').css('background-color', 'white');
 	});
 	
 	// add items
@@ -32,7 +106,8 @@ $(document).ready(function(){
 	  else
 		newId = 1;
 		  
-	  $(this).before('<span class="editing todo-wrap"><input type="checkbox" id="'+newId+'"/><label for="'+newId+'" class="todo"><i class="fa fa-check"></i><input type="text" class="input-todo" id="input-todo'+newId+'"/></label></div>');
+	  $(this).before('<span class="editing todo-wrap"><input type="checkbox" id="'+newId+'"/><label for="'+newId+'" class="todo"><i class="fa fa-check"></i><input type="text" class="input-todo" id="input-todo'+newId+'"/></label></span>');
+	  
 	  $('#input-todo'+newId+'').parent().parent().animate({
 		height:"36px"
 	  },200)
@@ -150,3 +225,19 @@ $(document).ready(function(){
         }
     });
 });
+
+function loginFunctionalty(){
+	  $('#signupButton').css("background-color", "#ecf0f1");
+	  $('#signupButton > span').css("color", "#333");
+	  $('#loginButton').css("background-color", "#d24d57");
+	  $('#loginButton > span').css("color", "white");
+	  //$('.left-panel').toggle(100);
+	  //$('.right-panel').toggle(50);
+	  $('.left-panel').show();
+	  $('.right-panel').hide();	
+}
+function clearFormFields(){
+	$('#regusername').val('');
+	$('#regpassword').val('');
+	$('#confPassword').val('');	
+}
