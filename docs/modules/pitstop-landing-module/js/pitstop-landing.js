@@ -117,6 +117,9 @@ $(document).ready(function(){
 	/* New checklist - start */
 	
 	$('#newChecklist').on('click', function() {
+		$('#titleValue').val('');
+		$('#select-picker').val('selectCategory');
+		$('.todo-wrap').remove();		
 		$('.checklist-center-section').hide();
 		$('.new-checklist-container').show();
 		$('.new-checklist-container').css('background-color', 'white');
@@ -297,4 +300,10 @@ function getchecklist(){
 function clearLogInFormFields(){
 	$('#username').val('');
 	$('#password').val('');
+	$('.login-success').hide();
+	$('.login-failed').hide();
+	$('.pwd-failed').hide();
+	$('#regusername').val('');
+	$('#regpassword').val('');
+	$('#confPassword').val('');
 }
