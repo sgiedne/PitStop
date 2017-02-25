@@ -40,12 +40,13 @@ $(document).ready(function(){
 	$('#signupButton, .signup-link').click(function(){
           $('#loginButton').css("background-color", "#ecf0f1");
           $('#loginButton > span').css("color", "#333");
-          $('#signupButton').css("background-color", "#d24d57");
+          $('#signupButton').css("background-color", "#07364E");
           $('#signupButton > span').css("color", "white");
           //$('.left-panel').toggle(50);
           //$('.right-panel').toggle(100);
 		  $('.left-panel').hide();
 		  $('.right-panel').show();
+		  $('.login-failed').hide();
     });
 	
 	$('#saveChecklist').click(function(){
@@ -97,7 +98,7 @@ $(document).ready(function(){
 			localStorage.setItem("pwd", pwd);
 			clearFormFields();
 			loginFunctionalty();
-			$('.login-success').show();			
+			$('.login-success').show();							
 		  }		  
 		} else {
 			$('.pwd-failed').show();
@@ -257,7 +258,7 @@ $(document).ready(function(){
 function loginFunctionalty(){
 	  $('#signupButton').css("background-color", "#ecf0f1");
 	  $('#signupButton > span').css("color", "#333");
-	  $('#loginButton').css("background-color", "#d24d57");
+	  $('#loginButton').css("background-color", "#07364E");
 	  $('#loginButton > span').css("color", "white");
 	  //$('.left-panel').toggle(100);
 	  //$('.right-panel').toggle(50);
