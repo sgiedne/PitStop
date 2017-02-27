@@ -1,8 +1,6 @@
 * {
-  margin: 0; padding: 0;
-}
-body {
-  font-size: 100%;
+  margin: 0; 
+  padding: 0;
 }
 .accordion {
   width: 100%;
@@ -12,23 +10,22 @@ body {
   cursor: pointer;
 }
 .accordion h2, h3, h4 {
-  #font-family: "News Cycle";
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  #font-family: Helvetica,Arial,sans-serif;
+  font-size: 18px;
 }
 .accordion h1 {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  #font-family: Helvetica,Arial,sans-serif;
   padding: 15px 20px;
 /*  background-color: #d1c9c0; */
 /*  background-color: #f9f7f4;*/
 /*  font-family: Lobster;*/
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 18px;
+  #font-weight: bold;
   color: #1A6A67;
 }
 .accordion h1:hover {
   color: #fff;
-  background-color: #1A6A67;
+  background-color: #666;
 }
 .accordion h1:first-child {
   /*border-radius: 10px 10px 0 0;*/
@@ -46,16 +43,16 @@ body {
   padding: 5px 25px;
 /*  background-color: #A7CDD5;*/
   color: #1A6A67;
-  font-size: 1.1rem;
+  font-size: 15px;
 }
 .accordion h2:hover {
-  background-color: #1A6A67;
+  background-color: #666;
   color: #fff;
 }
 .accordion h3 {
   padding: 5px 30px;
   background-color: #b94152;
-  font-size: .9rem;
+  font-size: 12px;
   color: #ddd; 
 }
 .accordion h3:hover {
@@ -64,7 +61,7 @@ body {
 .accordion h4 {
   padding: 5px 35px;
   background-color: #ffc25a;
-  font-size: .9rem;
+  font-size: 10px;
   color: #af720a; 
 }
 .accordion h4:hover {
@@ -73,8 +70,8 @@ body {
 .accordion p {
   padding: 15px 35px;
   background-color: #ddd;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  #font-family: Helvetica,Arial,sans-serif;
+  font-size: 8px;
   #font-family: "Georgia";
   #font-size: .8rem;
   color: #333;

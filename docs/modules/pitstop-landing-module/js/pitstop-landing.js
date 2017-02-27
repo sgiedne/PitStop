@@ -2,8 +2,11 @@ $(document).ready(function(){
 	console.log('Inside document ready');
 	
 	$('#log-out').hide();
+	
+	
 
 	$('#login').click(function(){
+		$('.login-success').hide();
 		var usrName = $('#username').val();
 		var pwd = $('#password').val();
 		if(typeof(Storage) !== "undefined") {
@@ -82,7 +85,9 @@ $(document).ready(function(){
 		$('.new-checklist-container').hide();
 	});
 		
-	$('#loginButton').click(function(){		 
+	$('#loginButton').click(function(){	
+	$('#username').val('');
+	$('#password').val('');	
 		 loginFunctionalty();
 	});
 	
@@ -284,17 +289,26 @@ function getchecklist(){
 			});		  
 		}
 	}
-	var htmlSection = '<div class="row">';
+	var htmlSection ='';
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		htmlSection = '<div class="row">';
 	var col = '<div class="col-md-4">'
-	var panesection = '<div class="panel panel-default">';
+	var panesection = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel panel-default">';
 	var panelHeading = '<div class="panel-heading">'+title+'</div>';
-	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></div>';
+	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></a>';
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		var parentEndTag = '</div>';
 	panelHeading += paneBody ;
 	panesection += panelHeading
 	col +=panesection;
-	htmlSection += col;	
+	htmlSection += col;
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		parentEndTag += htmlSection;
 	$('.existing-checklist').show();
-	$(".existing-checklist").append(htmlSection);	
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		$(".existing-checklist").append(htmlSection);
+	else
+		$(".row").append(htmlSection);
 
 }
 
@@ -307,4 +321,52 @@ function clearLogInFormFields(){
 	$('#regusername').val('');
 	$('#regpassword').val('');
 	$('#confPassword').val('');
+}
+
+function showEditScreen(listTitle){
+	console.log('Title:' +listTitle.text);
+	var storedtitle;
+	var clickedItem = new Object();
+	var storedCategory;
+	$('.todo-wrap').remove();
+	if(typeof(Storage) !== "undefined") {
+		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
+		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			$.each(obj.checklists, function(i, item) {
+				if(listTitle.text == item.title){
+					storedtitle = item.title;
+					clickedItem = item.items;
+					storedCategory = item.category;	
+				}				
+			});		  
+		}
+	}
+	console.log('Item: '+clickedItem);	
+	$('.todo-wrap').remove();
+	formExistingItems(clickedItem);	
+	$('#titleValue').val(storedtitle);
+	if(typeof (storedCategory) != "undefined")
+		$('#select-picker').val(storedCategory);
+	else
+		$('#select-picker').val('selectCategory');
+
+	$('.checklist-center-section').hide();
+	$('.new-checklist-container').show();
+	$('.new-checklist-container').css('background-color', 'white');
+	
+}
+
+function formExistingItems(clickedItem){
+	var count = 1;
+	$.each(clickedItem, function( key, value ) {
+		var parentSection = '<span class="todo-wrap">';
+		var inputSection = '<input type="checkbox" id="'+(count)+'"/>';
+		var labelSection = '<label for="'+count+'" class="todo"><i class="fa fa-check"></i>'+value+'</label>';
+		var deleteSection = '<span class="delete-item" title="remove"><i class="fa fa-times-circle"></i></span></span>';
+		labelSection += deleteSection ;
+		inputSection += labelSection;
+		parentSection +=inputSection;
+		count = count + 1;
+		$(".category-dropdown").after(parentSection);
+	});	
 }
