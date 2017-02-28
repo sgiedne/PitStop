@@ -235,7 +235,15 @@ iframe[seamless] {
     height: 552px;
 }
 
+.remove-icon{
+	float:right;	
+}
 
+.remove-link{
+	display: inline;
+	color: white;
+	padding:0px;
+}
 /* Custom checklist center section End*/
 
 /* New checklist - Start*/

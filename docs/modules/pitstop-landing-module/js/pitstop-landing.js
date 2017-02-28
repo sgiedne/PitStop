@@ -1,10 +1,12 @@
 $(document).ready(function(){
 	console.log('Inside document ready');
 	
-	$('#log-out').hide();
+	$('#log-out').hide();	
 	
-	
-	
+	$('#select-picker').on('change', function(){
+    var selected = $(this).find("option:selected").val();
+    alert(selected);
+  });
 
 	$('#login').click(function(){
 		$('.login-success').hide();
@@ -295,9 +297,9 @@ function getchecklist(){
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		htmlSection = '<div class="row">';
 	var col = '<div class="col-md-4">'
-	var panesection = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel panel-default">';
-	var panelHeading = '<div class="panel-heading">'+title+'</div>';
-	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></a>';
+	var panesection = '<div class="panel panel-default">';
+	var panelHeading = '<div class="panel-heading">'+title+'<a href="#" onclick = "removeChecklist()" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
+	var paneBody = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		var parentEndTag = '</div>';
 	panelHeading += paneBody ;
@@ -391,9 +393,9 @@ function getExistingchecklist(){
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		htmlSection = '<div class="row">';
 	var col = '<div class="col-md-4">'
-	var panesection = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel panel-default">';
-	var panelHeading = '<div class="panel-heading">'+title+'</div>';
-	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></a>';
+	var panesection = '<div class="panel panel-default">';
+	var panelHeading = '<div class="panel-heading">'+title+'<a href="#" onclick = "removeChecklist()" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
+	var paneBody = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		var parentEndTag = '</div>';
 	panelHeading += paneBody ;
@@ -408,4 +410,8 @@ function getExistingchecklist(){
 	else
 		$(".row").append(htmlSection);
 
+}
+
+function removeChecklist(){
+	$('.col-md-4').remove();
 }
