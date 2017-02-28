@@ -17,6 +17,7 @@ $(document).ready(function(){
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
 				$('#log-out').show();
+				getchecklist();
 			}else{
 				$('.login-failed').show();
 				/* 				

@@ -465,6 +465,7 @@ font-size:14px;
 .title-section{
 	display:block;
 	width: 99%;
+	margin: 7px;
 }
 
 select {
