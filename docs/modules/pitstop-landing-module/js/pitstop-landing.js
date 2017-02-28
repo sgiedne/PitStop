@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('#log-out').hide();
 	
 	
+	
 
 	$('#login').click(function(){
 		$('.login-success').hide();
@@ -17,7 +18,7 @@ $(document).ready(function(){
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
 				$('#log-out').show();
-				getchecklist();
+				getExistingchecklist();
 			}else{
 				$('.login-failed').show();
 				/* 				
@@ -370,4 +371,41 @@ function formExistingItems(clickedItem){
 		count = count + 1;
 		$(".category-dropdown").after(parentSection);
 	});	
+}
+
+function getExistingchecklist(){
+	$('.checklist-center-section').show();
+	$('.new-checklist-container').hide();
+	$('.checklist-center-section').css('background-color', 'white');
+	$('.row').remove();
+	var title;
+	if(typeof(Storage) !== "undefined") {
+		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
+		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			$.each(obj.checklists, function(i, item) {
+				title = item.title;
+			});		  
+		}
+	}
+	var htmlSection ='';
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		htmlSection = '<div class="row">';
+	var col = '<div class="col-md-4">'
+	var panesection = '<a href="#" onclick = "showEditScreen('+title+');" id='+title+'><div class="panel panel-default">';
+	var panelHeading = '<div class="panel-heading">'+title+'</div>';
+	var paneBody = '<div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></div></a>';
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		var parentEndTag = '</div>';
+	panelHeading += paneBody ;
+	panesection += panelHeading
+	col +=panesection;
+	htmlSection += col;
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		parentEndTag += htmlSection;
+	$('.existing-checklist').show();
+	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+		$(".existing-checklist").append(htmlSection);
+	else
+		$(".row").append(htmlSection);
+
 }
