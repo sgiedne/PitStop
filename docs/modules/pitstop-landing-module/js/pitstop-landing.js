@@ -1,10 +1,6 @@
 $(document).ready(function(){
-	console.log('Inside document ready');
-	
+	console.log('Inside document ready');	
 	$('#log-out').hide();	
-	
-	
-
 	$('#login').click(function(){
 		$('.login-success').hide();
 		var usrName = $('#username').val();
@@ -53,9 +49,10 @@ $(document).ready(function(){
 		  $('.login-failed').hide();
     });
 	
-	$('#saveChecklist').click(function(){
+	$('#saveChecklist, #updateChecklist').click(function(){
 		var usrname;
 		var items = [];
+		var now = new Date();
 		if(typeof(Storage) !== "undefined") {
 			usrname = localStorage.getItem("usrName");
 			$( ".todo" ).each(function( index ) {
@@ -70,6 +67,7 @@ $(document).ready(function(){
 				password: '',
 				checklists: [
 					{
+						id: now.getTime(),
 						title: title,
 						category: category,
 						items: items
@@ -285,15 +283,18 @@ function getchecklist(){
 	$('.new-checklist-container').hide();
 	$('.checklist-center-section').css('background-color', 'white');
 	var title;
+	var uniqueId;
 	if(typeof(Storage) !== "undefined") {
 		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
 		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
 			$.each(obj.checklists, function(i, item) {
 				title = item.title;
+				uniqueId =  item.id;
 			});		  
 		}
 	}
-	appendChecklists(title);
+	console.log("UniqueId: "+uniqueId);
+	appendChecklists(title, uniqueId);
 
 }
 
@@ -308,8 +309,9 @@ function clearLogInFormFields(){
 	$('#confPassword').val('');
 }
 
-function showEditScreen(listTitle){
+function showEditScreen(listTitle, uniqueId){
 	console.log('Title:' +listTitle.id);
+	console.log('Title:' +uniqueId);
 	var storedtitle;
 	var clickedItem = new Object();
 	var storedCategory;
@@ -365,19 +367,21 @@ function getExistingchecklist(){
 	$('.checklist-center-section').css('background-color', 'transparent');
 	$('.row').remove();
 	var title;
+	var uniqueId;
 	if(typeof(Storage) !== "undefined") {
 		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
 		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
 			$.each(obj.checklists, function(i, item) {
 				title = item.title;
+				uniqueId =  item.id;
 			});		  
 		}
 	}
-	appendChecklists(title);
+	appendChecklists(title, uniqueId);
 
 }
 
-function removeChecklist(){
+function removeChecklist(uniqueId){
 	$('.col-md-4').remove();
 }
 
@@ -389,6 +393,7 @@ function clickedElement($this) {
 	var storedtitle;
 	var clickedItem = new Object();
 	var storedCategory;
+	var uniqueId;
 	$('.row').remove();
 	if(typeof(Storage) !== "undefined") {
 		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
@@ -398,26 +403,27 @@ function clickedElement($this) {
 					storedtitle = item.title;
 					clickedItem = item.items;
 					storedCategory = item.category;	
+					uniqueId =  item.id;
 				}				
 			});		  
 		}
 	}
 	
 	if(typeof(storedCategory) != "undefined"){
-		appendChecklists(storedtitle);
+		appendChecklists(storedtitle, uniqueId);
 		$('.checklist-center-section').css('background-color', 'white');
 	}
 }
 
-function appendChecklists(storedtitle){
+function appendChecklists(storedtitle, uniqueId){
 	
 	var htmlSection ='';
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		htmlSection = '<div class="row">';
-	var col = '<div class="col-md-4">'
+	var col = '<div class="col-md-4" id = "'+uniqueId+'">'
 	var panesection = '<div class="panel panel-default">';
-	var panelHeading = '<div class="panel-heading">'+storedtitle+'<a href="#" onclick = "removeChecklist()" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
-	var paneBody = '<a href="#" onclick = "showEditScreen('+storedtitle+');" id='+storedtitle+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
+	var panelHeading = '<div class="panel-heading">'+storedtitle+'<a href="#" onclick = "removeChecklist('+uniqueId+')" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
+	var paneBody = '<a href="#" onclick = "showEditScreen('+storedtitle+','+uniqueId+');" id='+storedtitle+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		var parentEndTag = '</div>';
 	panelHeading += paneBody ;
