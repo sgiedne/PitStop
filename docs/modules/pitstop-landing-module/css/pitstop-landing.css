@@ -4,7 +4,8 @@
     float: right;
     font-weight: bold;  
     border: none !important;
-    margin-top: 0px
+    margin-top: 0px;
+	 background-color: #07364E;
 }
 
 .header-container {

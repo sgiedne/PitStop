@@ -3,10 +3,7 @@ $(document).ready(function(){
 	
 	$('#log-out').hide();	
 	
-	$('#select-picker').on('change', function(){
-    var selected = $(this).find("option:selected").val();
-    alert(selected);
-  });
+	
 
 	$('#login').click(function(){
 		$('.login-success').hide();
@@ -122,6 +119,7 @@ $(document).ready(function(){
 
 		$('.active').removeClass('active');
 		$this.toggleClass('active');
+		clickedElement($this);
 	});
 	
 	/* New checklist - start */
@@ -328,7 +326,7 @@ function clearLogInFormFields(){
 }
 
 function showEditScreen(listTitle){
-	console.log('Title:' +listTitle.text);
+	console.log('Title:' +listTitle.id);
 	var storedtitle;
 	var clickedItem = new Object();
 	var storedCategory;
@@ -337,7 +335,7 @@ function showEditScreen(listTitle){
 		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
 		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
 			$.each(obj.checklists, function(i, item) {
-				if(listTitle.text == item.title){
+				if(listTitle.id == item.title){
 					storedtitle = item.title;
 					clickedItem = item.items;
 					storedCategory = item.category;	
@@ -376,6 +374,7 @@ function formExistingItems(clickedItem){
 }
 
 function getExistingchecklist(){
+	
 	$('.checklist-center-section').show();
 	$('.new-checklist-container').hide();
 	$('.checklist-center-section').css('background-color', 'white');
@@ -414,4 +413,50 @@ function getExistingchecklist(){
 
 function removeChecklist(){
 	$('.col-md-4').remove();
+}
+
+function clickedElement($this) {
+    console.log($this.text());
+	$('.checklist-center-section').show();
+	$('.new-checklist-container').hide();
+	
+	var storedtitle;
+	var clickedItem = new Object();
+	var storedCategory;
+	$('.row').remove();
+	if(typeof(Storage) !== "undefined") {
+		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
+		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			$.each(obj.checklists, function(i, item) {
+				if($this.text().trim() == item.category || 'All Checklist' == $this.text().trim()){
+					storedtitle = item.title;
+					clickedItem = item.items;
+					storedCategory = item.category;	
+				}				
+			});		  
+		}
+	}
+	
+	if(typeof(storedCategory) != "undefined"){
+		var htmlSection ='';
+		if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+			htmlSection = '<div class="row">';
+		var col = '<div class="col-md-4">'
+		var panesection = '<div class="panel panel-default">';
+		var panelHeading = '<div class="panel-heading">'+storedtitle+'<a href="#" onclick = "removeChecklist()" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
+		var paneBody = '<a href="#" onclick = "showEditScreen('+storedtitle+');" id='+storedtitle+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
+		if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+			var parentEndTag = '</div>';
+		panelHeading += paneBody ;
+		panesection += panelHeading
+		col +=panesection;
+		htmlSection += col;
+		if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+			parentEndTag += htmlSection;
+		$('.existing-checklist').show();
+		if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
+			$(".existing-checklist").append(htmlSection);
+		else
+			$(".row").append(htmlSection);
+	}
 }
