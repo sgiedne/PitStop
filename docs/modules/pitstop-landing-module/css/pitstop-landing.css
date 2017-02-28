@@ -92,6 +92,7 @@ input[type="text"] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  width: 98%;
 }
 
 input[type="password"] {
@@ -491,6 +492,10 @@ select {
 
 .category-dropdown{
 	margin:7px;
+}
+
+#updateChecklist{
+	display:none;
 }
 /* New checklist - End */
 
