@@ -656,8 +656,13 @@ h4 {
 /*overriding default bootstrap*/
 
 .panel-default {
-    border: 1px solid #07364E;
     border-radius: 0;
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.panel-default:hover {
+  background-color: #f0f0f0;
 }
 
 .panel-default > .panel-heading {
