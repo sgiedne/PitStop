@@ -444,15 +444,14 @@ function clickedElement($this) {
 					clickedItem = item.items;
 					storedCategory = item.category;	
 					uniqueId =  item.id;
+					if(typeof(storedCategory) != "undefined"){
+						appendChecklists(storedtitle, uniqueId);
+						$('.checklist-center-section').css('background-color', 'white');
+					}
 				}				
 			});		  
 		}
-	}
-	
-	if(typeof(storedCategory) != "undefined"){
-		appendChecklists(storedtitle, uniqueId);
-		$('.checklist-center-section').css('background-color', 'white');
-	}
+	}	
 }
 
 function appendChecklists(storedtitle, uniqueId){
