@@ -95,6 +95,10 @@ input[type="text"] {
   width: 100%;
 }
 
+input.success {
+	border-color:green;
+}
+
 input[type="password"] {
   margin-bottom: 8px;
   border-top-left-radius: 0;
@@ -188,7 +192,7 @@ input[type="password"] {
 }
 
 .checklist-right-section {
-    height: 552px;
+    height: 452px;
     #background-color: #87877e;
     float: left;
     position: relative;
@@ -766,4 +770,45 @@ h4 {
   padding: 5px 20px;
   text-align: right;
   background-color: #f5f6f8;
+}
+
+.feedback{
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+
+.feedback a {
+	display:block;
+	height:34px;
+	width:100%;
+	text-align:center;
+	background:#666;
+	border:2px solid #fff;
+	outline:1px solid #a1a1a1;	
+	padding:5px;
+	float:left;
+	cursor:pointer;
+	text-decoration:none;
+	
+	/*Font*/
+	color:#FFF;
+	font-weight:bold;
+	font-size:18px;
+}
+
+.feedback .form{
+	clear:both;
+	height:300px;
+	width:450px;
+	border:1px solid #000;
+	background:#fff;
+	padding:15px;
+	display: none;
+}
+.feedback .form textarea{
+	resize: none;
+}
+.feedback .status{
+	font-size:16px;
 }

@@ -4,7 +4,13 @@ var deleteChecklistId = '';
 
 $(document).ready(function(){
 	console.log('Inside document ready');	
-	$('#log-out').hide();	
+	$('#log-out').hide();
+	
+	$("#feedback_button").click(function(){
+    		$('.form').slideToggle();   		
+    });
+	
+	
 	$('#login').click(function(){
 		$('.login-success').hide();
 		var usrName = $('#username').val();
@@ -17,6 +23,7 @@ $(document).ready(function(){
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
 				$('#log-out').show();
+				$('.bottom-section').hide();
 				getExistingchecklist();
 			}else{
 				$('.login-failed').show();
@@ -38,6 +45,7 @@ $(document).ready(function(){
 			$('.down-arrow-image-section').show();
 			$('.up-arrow-image-section').show();
 			$('#log-out').hide();
+			$('.bottom-section').show();
 			clearLogInFormFields();		
 	});
 	

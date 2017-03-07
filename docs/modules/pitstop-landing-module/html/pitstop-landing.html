@@ -40,12 +40,12 @@
 				</div>
 				
 				<div class="left-panel">
-					<p class="login-success">Your login id has been successfully created</p>
-					<p class="login-failed">Invalid username/password</p>
-					<input type="text" id="username" class="form-control" name="username" placeholder="Username" autofocus="" />
-					<input type="password" id="password" class="form-control" name="password" placeholder="Password" />      
-					<button id= "login" class="btn btn-lg btn-primary btn-block">Login</button> 			  	
-					<a class="signup-link" href="#"> <p> Don't have an account? Register </p></a>		
+						<p class="login-success">Your login id has been successfully created</p>
+						<p class="login-failed">Invalid username/password</p>
+						<input type="text" id="username" class="form-control" name="username" placeholder="Username" autofocus="" />
+						<input type="password" id="password" class="form-control" name="password" placeholder="Password" />      
+						<button id= "login" class="btn btn-lg btn-primary btn-block">Login</button> 			  	
+						<a class="signup-link" href="#"> <p> Don't have an account? Register </p></a>
 			    </div>
 				
 				<div class="right-panel">
@@ -129,9 +129,23 @@
 			<div class = "checklist-right-section">
 				<div id="global-search-section">
 					<iframe src="../../pitstop-global-search-module/html/pitstop-global-search.html" seamless></iframe>
+				</div>			
+				
+			</div>
+			<div class="float-clear"></div>	
+			<div class="feedback">
+				<a id="feedback_button">Feedback</a>				
+				<div class="form">
+					<div class="form-group">
+						<input class="form-control" name="email" autofocus placeholder="Your e-mail" type="email" />
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" name="body" required placeholder="Please write your feedback here..." rows="5"></textarea>
+					</div>
+					<button class="btn btn-primary pull-right" type="submit">Send</button>
 				</div>
 			</div>
-			<div class="float-clear"></div>			
+			
 		</div>
 	</section>
 	<!-- Custom checklist center section End -->
@@ -155,7 +169,7 @@
 	<!-- Footer section End -->
 	
 	<!-- Global Search section Start -->
-	<section>
+	<section class = "bottom-section">
 		<div id = "globalsearchsection" class = "global-search-section">
 			<aside class="accordion">
         <h1>Travel</h1>
