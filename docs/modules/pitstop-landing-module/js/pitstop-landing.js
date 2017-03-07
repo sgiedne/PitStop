@@ -1,6 +1,7 @@
 var categoryName = '';
 var selectedChecklistId = '';
 var deleteChecklistId = '';
+
 $(document).ready(function(){
 	console.log('Inside document ready');	
 	$('#log-out').hide();	
@@ -118,6 +119,8 @@ $(document).ready(function(){
 			}
 		}		
 		getExistingchecklist();
+		displaySelectedCategory();
+		//$('.list-group-item').text('All Checklist').toggleClass('active');
 	});
 	
 	$('#updateChecklist').click(function(){
@@ -143,6 +146,8 @@ $(document).ready(function(){
 		}
 		localStorage.setItem("checklists", JSON.stringify(obj));
 		getExistingchecklist();
+		displaySelectedCategory();		
+		//$('.list-group-item').text('All Checklist').toggleClass('active');
 	});
 	
 	$('#cancelChecklist').click(function(){
@@ -514,4 +519,21 @@ function appendChecklists(storedtitle, uniqueId){
 		$(".row").append(htmlSection);
 	
 	$('.checklist-center-section').css('background-color', 'white');
+}
+
+function displaySelectedCategory(){
+	
+	if("Travel" == categoryName){
+		$('#travel').trigger('click');
+	}else if("Daily Activities" == categoryName){
+		$('#dailyAct').trigger('click');
+	} else if("Office/College" == categoryName){
+		$('#offColl').trigger('click');
+	} else if("Sports" == categoryName){
+		$('#sports').trigger('click');
+	} else if("Others" == categoryName){
+		$('#others').trigger('click');
+	} else{
+		$('#allChecklist').trigger('click');
+	}		
 }
