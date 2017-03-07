@@ -117,7 +117,7 @@ $(document).ready(function(){
 				localStorage.setItem("checklists", JSON.stringify(saveObject));
 			}
 		}		
-		getchecklist();
+		getExistingchecklist();
 	});
 	
 	$('#updateChecklist').click(function(){
@@ -142,7 +142,7 @@ $(document).ready(function(){
 			});	
 		}
 		localStorage.setItem("checklists", JSON.stringify(obj));
-		getchecklist();
+		getExistingchecklist();
 	});
 	
 	$('#cancelChecklist').click(function(){
