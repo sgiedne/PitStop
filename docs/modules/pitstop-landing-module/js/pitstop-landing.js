@@ -65,7 +65,7 @@ $(document).ready(function(){
 			var category = $('#select-picker').val();
 
 			var obj =	JSON.parse(localStorage.getItem("checklists"));
-			if(typeof(obj) != "undefined"){
+			if(typeof(obj) != "undefined" && obj != null){
 				obj.checklists.push(
 					{id: now.getTime(), title: title, category: category, items: items}
 				);
