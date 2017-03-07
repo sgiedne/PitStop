@@ -423,7 +423,7 @@ function appendChecklists(storedtitle, uniqueId){
 	var col = '<div class="col-md-4" id = "'+uniqueId+'">'
 	var panesection = '<div class="panel panel-default">';
 	var panelHeading = '<div class="panel-heading">'+storedtitle+'<a href="#" onclick = "removeChecklist('+uniqueId+')" class="remove-link"><i class="fa fa-times remove-icon"></i></a></div>';
-	var paneBody = '<a href="#" onclick = "showEditScreen('+storedtitle+','+uniqueId+');" id='+storedtitle+'><div class="panel-body"><img src="http://placehold.it/150x150" alt="" class="img-responsive center-block" /></div></a></div>';
+	var paneBody = '<a href="#" onclick = "showEditScreen('+storedtitle+','+uniqueId+');" id='+storedtitle+'><div class="panel-body"><img src="https://illinoiscaselaw.com/wp-content/uploads/checklist.png" alt="" class="img-responsive center-block" /></div></a></div>';
 	if($('.row > .col-md-4').length == 3 || $('.row > .col-md-4').length == 0)
 		var parentEndTag = '</div>';
 	panelHeading += paneBody ;
