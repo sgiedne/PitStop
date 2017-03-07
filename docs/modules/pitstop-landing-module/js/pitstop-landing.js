@@ -1,5 +1,6 @@
 var categoryName = '';
 var selectedChecklistId = '';
+var deleteChecklistId = '';
 $(document).ready(function(){
 	console.log('Inside document ready');	
 	$('#log-out').hide();	
@@ -50,6 +51,36 @@ $(document).ready(function(){
 		  $('.right-panel').show();
 		  $('.login-failed').hide();
     });
+	
+	//dialog box start
+	
+	$('#delete').on('click', function() {
+		if(deleteChecklistId != ''){
+			var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			var items = [];
+			var checklistArray = obj.checklists;
+			$.each(checklistArray, function(i, item){
+				if(item.id != deleteChecklistId){
+					items.push({id: item.id, title: item.title, category: item.category, items: item.items});
+				}
+			});
+			obj.checklists = items;
+			localStorage.setItem("checklists", JSON.stringify(obj));
+			var $accountDeleteDialog = $('#confirm-delete'), transition;
+			$accountDeleteDialog[0].close();
+			$accountDeleteDialog.removeClass('dialog-scale');
+			clearTimeout(transition);
+			getExistingchecklist();			
+		}
+	});
+	 
+	$('#cancel').on('click', function() {
+		var $accountDeleteDialog = $('#confirm-delete'), transition;
+		$accountDeleteDialog[0].close();
+		$accountDeleteDialog.removeClass('dialog-scale');
+		clearTimeout(transition);
+	});
+	//dialog box end
 	
 	$('#saveChecklist').click(function(){
 		var usrname;
@@ -416,12 +447,17 @@ function getExistingchecklist(){
 			});		  
 		}
 	}
-	
-
 }
 
 function removeChecklist(uniqueId){
-	$('.col-md-4').remove();
+	deleteChecklistId = uniqueId;	
+	var $accountDeleteDialog = $('#confirm-delete'), transition;	 
+	$accountDeleteDialog[0].showModal();
+	transition = window.setTimeout(function() {
+		$accountDeleteDialog.addClass('dialog-scale');
+	}, 0.5);
+	
+	//$('.col-md-4').remove();
 }
 
 function clickedElement($this) {

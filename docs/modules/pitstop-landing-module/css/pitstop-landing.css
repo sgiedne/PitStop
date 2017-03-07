@@ -667,7 +667,7 @@ h4 {
 
 .panel-default > .panel-heading {
     color: #ffffff;
-    background-color: #E26A6A;
+    background-color: #666;
     border-radius: 0;
 }
 
@@ -692,3 +692,78 @@ h4 {
 
 
 /* Global search section End*/
+
+
+/* Dialog Box */
+.site-dialog {
+  overflow: hidden;
+  width: 95%;
+  max-width: 500px;
+  padding: 0;
+  border-width: 0;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  transform: scale(0.1);
+  transition: transform 200ms;
+}
+.site-dialog.dialog-scale {
+  visibility: visible;
+  transform: scale(1);
+}
+.site-dialog h1 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  color: #fff;
+}
+.site-dialog p {
+  font-size: 14px;
+}
+.site-dialog .dialog-header {
+  padding: 12px 20px;
+  background-color: #434a54;
+}
+.site-dialog .dialog-content {
+  padding: 30px 20px;
+  color: #555;
+  background-color: #fff;
+  height: 30px;
+}
+.site-dialog .dialog-content p:last-of-type,
+.site-dialog .dialog-content p:only-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.buttonCommon{
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #555;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+}
+.btn-delete {
+  color: #fff;
+  border-color: #ab3326;
+  background-color: #c0392b;
+}
+.btn-delete:hover {
+  background-color: #ab3326;
+}
+.btn-cancel {
+  color: #999;
+  border-color: #ddd;
+}
+.btn-cancel:hover {
+  background-color: #e6e6e6;
+}
+
+.btngrp {
+  display:block;
+  padding: 5px 20px;
+  text-align: right;
+  background-color: #f5f6f8;
+}
