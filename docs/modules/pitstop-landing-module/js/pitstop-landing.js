@@ -1,3 +1,5 @@
+var categoryName = '';
+var selectedChecklistId = '';
 $(document).ready(function(){
 	console.log('Inside document ready');	
 	$('#log-out').hide();	
@@ -49,7 +51,7 @@ $(document).ready(function(){
 		  $('.login-failed').hide();
     });
 	
-	$('#saveChecklist, #updateChecklist').click(function(){
+	$('#saveChecklist').click(function(){
 		var usrname;
 		var items = [];
 		var now = new Date();
@@ -62,20 +64,53 @@ $(document).ready(function(){
 			var title = $('#titleValue').val();
 			var category = $('#select-picker').val();
 
-			var saveObject = {
-				username: usrname,
-				password: '',
-				checklists: [
-					{
-						id: now.getTime(),
-						title: title,
-						category: category,
-						items: items
-					}
-				]
+			var obj =	JSON.parse(localStorage.getItem("checklists"));
+			if(typeof(obj) != "undefined"){
+				obj.checklists.push(
+					{id: now.getTime(), title: title, category: category, items: items}
+				);
+				localStorage.setItem("checklists", JSON.stringify(obj));
+			}else{
+				var saveObject = {
+					username: usrname,
+					password: '',
+					checklists: [
+						{
+							id: now.getTime(),
+							title: title,
+							category: category,
+							items: items
+						}
+					]
+				}
+				localStorage.setItem("checklists", JSON.stringify(saveObject));
 			}
+		}		
+		getchecklist();
+	});
+	
+	$('#updateChecklist').click(function(){
+		var items = [];
+		var usrname;
+		if(typeof(Storage) !== "undefined") {
+			usrname = localStorage.getItem("usrName");
+			$( ".todo" ).each(function( index ) {
+				items.push($(this).text());
+			});
+
+			var title = $('#titleValue').val();
+			var category = $('#select-picker').val();
+
+			var obj =	JSON.parse(localStorage.getItem("checklists"));		
+			$.each(obj.checklists, function(i, item) {
+				if(item.id == selectedChecklistId){
+					item.title = title;
+					item.category = category;
+					item.items = items;
+				}
+			});	
 		}
-		localStorage.setItem("checklists", JSON.stringify(saveObject));
+		localStorage.setItem("checklists", JSON.stringify(obj));
 		getchecklist();
 	});
 	
@@ -114,7 +149,6 @@ $(document).ready(function(){
 	$('.list-group-item').on('click', function() {
 		var $this = $(this);
 		var $alias = $this.data('alias');
-
 		$('.active').removeClass('active');
 		$this.toggleClass('active');
 		clickedElement($this);
@@ -125,6 +159,10 @@ $(document).ready(function(){
 	$('#newChecklist').on('click', function() {
 		$('#titleValue').val('');
 		$('#select-picker').val('selectCategory');
+		if((categoryName) != ''){			
+			if(categoryName != 'All Checklist')
+				$('#select-picker').val(categoryName);
+		}
 		$('.todo-wrap').remove();		
 		$('.checklist-center-section').hide();
 		$('.new-checklist-container').show();
@@ -290,12 +328,11 @@ function getchecklist(){
 			$.each(obj.checklists, function(i, item) {
 				title = item.title;
 				uniqueId =  item.id;
+				appendChecklists(title, uniqueId);
 			});		  
 		}
 	}
 	console.log("UniqueId: "+uniqueId);
-	appendChecklists(title, uniqueId);
-
 }
 
 function clearLogInFormFields(){
@@ -310,8 +347,9 @@ function clearLogInFormFields(){
 }
 
 function showEditScreen(listTitle, uniqueId){
-	console.log('Title:' +listTitle.id);
+	console.log('listTitle:' +listTitle.id);
 	console.log('Title:' +uniqueId);
+	selectedChecklistId = uniqueId;
 	var storedtitle;
 	var clickedItem = new Object();
 	var storedCategory;
@@ -322,7 +360,7 @@ function showEditScreen(listTitle, uniqueId){
 		if(typeof(localStorage.getItem("checklists")) != 'undefined'){
 		  var obj =	JSON.parse(localStorage.getItem("checklists"));		
 			$.each(obj.checklists, function(i, item) {
-				if(listTitle.id == item.title){
+				if(uniqueId == item.id){
 					storedtitle = item.title;
 					clickedItem = item.items;
 					storedCategory = item.category;	
@@ -374,10 +412,11 @@ function getExistingchecklist(){
 			$.each(obj.checklists, function(i, item) {
 				title = item.title;
 				uniqueId =  item.id;
+				appendChecklists(title, uniqueId);
 			});		  
 		}
 	}
-	appendChecklists(title, uniqueId);
+	
 
 }
 
@@ -387,6 +426,7 @@ function removeChecklist(uniqueId){
 
 function clickedElement($this) {
     console.log($this.text());
+	categoryName = $this.text().trim();
 	$('.checklist-center-section').show();
 	$('.new-checklist-container').hide();
 	$('.checklist-center-section').css('background-color', 'transparent');
