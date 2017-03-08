@@ -192,7 +192,7 @@ input[type="password"] {
 }
 
 .checklist-right-section {
-    height: 415px;
+    height: 395px;
     #background-color: #87877e;
     float: left;
     position: relative;
@@ -238,7 +238,7 @@ a.list-group-item {
 iframe[seamless] {
     border: none;
     width: 140%;
-    height: 415px;
+    height: 395px;
 }
 
 .remove-icon{
