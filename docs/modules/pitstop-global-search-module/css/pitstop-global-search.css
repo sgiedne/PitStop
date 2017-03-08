@@ -22,6 +22,7 @@
   font-size: 18px;
   #font-weight: bold;
   color: #1A6A67;
+  margin-top: 10px;
 }
 .accordion h1:hover {
   color: #fff;
@@ -44,6 +45,7 @@
 /*  background-color: #A7CDD5;*/
   color: #1A6A67;
   font-size: 15px;
+ 
 }
 .accordion h2:hover {
   background-color: #666;
