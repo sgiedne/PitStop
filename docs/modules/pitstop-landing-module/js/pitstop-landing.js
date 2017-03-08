@@ -23,7 +23,7 @@ $(document).ready(function(){
 				$('.down-arrow-image-section').hide();
 				$('.up-arrow-image-section').hide();
 				$('#log-out').show();
-				$('.bottom-section').hide();
+				//$('.bottom-section').hide();
 				getExistingchecklist();
 			}else{
 				$('.login-failed').show();
@@ -45,7 +45,7 @@ $(document).ready(function(){
 			$('.down-arrow-image-section').show();
 			$('.up-arrow-image-section').show();
 			$('#log-out').hide();
-			$('.bottom-section').show();
+			//$('.bottom-section').show();
 			clearLogInFormFields();		
 	});
 	

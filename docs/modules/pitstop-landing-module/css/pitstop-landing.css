@@ -192,7 +192,7 @@ input[type="password"] {
 }
 
 .checklist-right-section {
-    height: 452px;
+    height: 415px;
     #background-color: #87877e;
     float: left;
     position: relative;
@@ -238,7 +238,7 @@ a.list-group-item {
 iframe[seamless] {
     border: none;
     width: 140%;
-    height: 552px;
+    height: 415px;
 }
 
 .remove-icon{
@@ -527,9 +527,7 @@ select {
     # margin: 20px;
 }
 
-.global-search-section {
-    #display: none;
-}
+
 
 
 /* Footer section End*/
@@ -542,19 +540,12 @@ select {
     margin: 0%;
 }
 
-.accordion h1,
-h2,
-h3,
-h4 {
+.accordion h1,h2,h3,h4 {
     cursor: pointer;
     margin: 0%
 }
 
-.accordion h2,
-h3,
-h4 {
-    #font-family: "News Cycle";
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.accordion h2,h3,h4 {
     font-size: 14px;
 }
 
@@ -563,7 +554,6 @@ h4 {
     color: #fff;
     background-color: #eff0f1;
     color: #1A6A67;
-/*    background: linear-gradient(#1F3A93, #07364E);*/
     #font-family: Lobster;
     font-size: 1.2rem;
     font-weight: normal;
@@ -571,7 +561,7 @@ h4 {
 
 .accordion h1:hover {
     color: #fff;
-    background-color: #1A6A67;
+    background-color: #666;
 }
 
 .accordion h1:first-child {
@@ -583,11 +573,10 @@ h4 {
 }
 
 .accordion h1:not(:last-of-type) {
-    border-bottom: 1px solid #332039;
+    border-bottom: 1px solid #1A6A67;
 }
 
-.accordion div,
-.accordion p {
+.accordion div,.accordion p {
     display: none;
 }
 
@@ -599,7 +588,7 @@ h4 {
 }
 
 .accordion h2:hover {
-    background-color: #1A6A67;
+    background-color: #666;
     color: #fff
 }
 
