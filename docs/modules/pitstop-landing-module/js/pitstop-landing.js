@@ -296,14 +296,15 @@ $(document).ready(function(){
 		$('.up-arrow-image-section').css('display','inline');
 		$('.down-arrow-image-section').hide();
 		//$('.global-search-section').show();
-		document.getElementById("globalsearchsection").scrollIntoView()
+		document.getElementById("globalsearchsection").scrollIntoView();
+		//$(".globalsearchsection")[0].scrollintoview({ duration: "slow", direction: "y"})
 	}); 
 
 	$('#collapseGlobalSearch').click(function(){
 		$('.up-arrow-image-section').css('display','none');
 		$('.down-arrow-image-section').show();
 		//$('.global-search-section').hide();
-		document.getElementById("headerContainer").scrollIntoView()
+		document.getElementById("headerContainer").scrollIntoView();
 	}); 
 	
 		
