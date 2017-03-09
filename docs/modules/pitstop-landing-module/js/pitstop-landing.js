@@ -5,11 +5,11 @@ var deleteChecklistId = '';
 $(document).ready(function(){
 	console.log('Inside document ready');	
 	$('#log-out').hide();
-	
+	$('#username').val('');
+	$('#password').val('');
 	$("#feedback_button").click(function(){
     	$('.form').slideToggle();   		
     });
-	
 	
 	$('#login').click(function(){
 		$('.login-success').hide();
@@ -95,39 +95,50 @@ $(document).ready(function(){
 		var usrname;
 		var items = [];
 		var now = new Date();
-		if(typeof(Storage) !== "undefined") {
-			usrname = localStorage.getItem("usrName");
-			$( ".todo" ).each(function( index ) {
-				items.push($(this).text());
-			});
+		var title = $('#titleValue').val();
+		var category = $('#select-picker').val();
+		if(title == '' && category == 'selectCategory'){
+			$('.error-meesage').show();
+			$('#titleValue').css("border-color", "red");
+			$('select').css("border-color", "red");
+		}else if(category == 'selectCategory'){
+			$('.error-meesage').show();
+			$('select').css("border-color", "red");
+		}else if(title == ''){
+			$('.error-meesage').show();
+			$('#titleValue').css("border-color", "red");			
+		}else{
+			if(typeof(Storage) !== "undefined") {
+				usrname = localStorage.getItem("usrName");
+				$( ".todo" ).each(function( index ) {
+					items.push($(this).text());
+				});
 
-			var title = $('#titleValue').val();
-			var category = $('#select-picker').val();
-
-			var obj =	JSON.parse(localStorage.getItem("checklists"));
-			if(typeof(obj) != "undefined" && obj != null){
-				obj.checklists.push(
-					{id: now.getTime(), title: title, category: category, items: items}
-				);
-				localStorage.setItem("checklists", JSON.stringify(obj));
-			}else{
-				var saveObject = {
-					username: usrname,
-					password: '',
-					checklists: [
-						{
-							id: now.getTime(),
-							title: title,
-							category: category,
-							items: items
-						}
-					]
+				var obj =	JSON.parse(localStorage.getItem("checklists"));
+				if(typeof(obj) != "undefined" && obj != null){
+					obj.checklists.push(
+						{id: now.getTime(), title: title, category: category, items: items}
+					);
+					localStorage.setItem("checklists", JSON.stringify(obj));
+				}else{
+					var saveObject = {
+						username: usrname,
+						password: '',
+						checklists: [
+							{
+								id: now.getTime(),
+								title: title,
+								category: category,
+								items: items
+							}
+						]
+					}
+					localStorage.setItem("checklists", JSON.stringify(saveObject));
 				}
-				localStorage.setItem("checklists", JSON.stringify(saveObject));
-			}
-		}		
-		getExistingchecklist();
-		displaySelectedCategory();
+			}		
+			getExistingchecklist();
+			displaySelectedCategory();
+		}
 		//$('.list-group-item').text('All Checklist').toggleClass('active');
 	});
 	
@@ -161,6 +172,9 @@ $(document).ready(function(){
 	$('#cancelChecklist').click(function(){
 		$('.checklist-center-section').show();
 		$('.new-checklist-container').hide();
+		$('.error-meesage').hide();
+		$('#titleValue').css("border-color", "#A6AFB7");
+		$('select').css("border-color", "#A6AFB7");
 	});
 		
 	$('#loginButton').click(function(){	
