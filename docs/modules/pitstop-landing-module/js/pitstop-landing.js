@@ -104,9 +104,11 @@ $(document).ready(function(){
 		}else if(category == 'selectCategory'){
 			$('.error-meesage').show();
 			$('select').css("border-color", "red");
+			$('#titleValue').css("border-color", "#A6AFB7");
 		}else if(title == ''){
 			$('.error-meesage').show();
-			$('#titleValue').css("border-color", "red");			
+			$('#titleValue').css("border-color", "red");	
+			$('select').css("border-color", "#A6AFB7");			
 		}else{
 			if(typeof(Storage) !== "undefined") {
 				usrname = localStorage.getItem("usrName");
