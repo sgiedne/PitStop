@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$('#log-out').hide();
 	
 	$("#feedback_button").click(function(){
-    		$('.form').slideToggle();   		
+    	$('.form').slideToggle();   		
     });
 	
 	
