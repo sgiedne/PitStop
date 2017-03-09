@@ -217,6 +217,9 @@ $(document).ready(function(){
 	/* New checklist - start */
 	
 	$('#newChecklist').on('click', function() {
+		$('.error-meesage').hide();
+		$('#titleValue').css("border-color", "#A6AFB7");
+		$('select').css("border-color", "#A6AFB7");
 		$('#titleValue').val('');
 		$('#select-picker').val('selectCategory');
 		if((categoryName) != ''){			
