@@ -406,6 +406,9 @@ function clearLogInFormFields(){
 }
 
 function showEditScreen(listTitle, uniqueId){
+	$('.error-meesage').hide();
+	$('#titleValue').css("border-color", "#A6AFB7");
+	$('select').css("border-color", "#A6AFB7");
 	console.log('listTitle:' +listTitle.id);
 	console.log('Title:' +uniqueId);
 	selectedChecklistId = uniqueId;
